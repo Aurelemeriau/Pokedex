@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function PokemonCard (props) {
 
   console.log(props);
@@ -7,7 +9,7 @@ function PokemonCard (props) {
   if (pokemon.imgSrc === "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png") { 
 
    return <figure>
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"></img>
+            <img src={pokemon.imgSrc}></img>
             <figcaption>Bulbasaur</figcaption>
           </figure>
   } else {
@@ -19,5 +21,11 @@ function PokemonCard (props) {
   }
 }
 
+PokemonCard.propTypes = {
+  pokemon: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    imgSrc: PropTypes.string,
+  })
+}
 
 export default PokemonCard;

@@ -6,55 +6,75 @@ import PokemonCard from './components/PokemonCard'
 
 function App() { 
 
-  const pokemonList = [
-    {
+  const [pokemonIndex, setPokemonIndex] = useState(0);
+
+  const handleClickPlus = () => {
+    setPokemonIndex(pokemonIndex + 1)
+  }
+
+  const handleClickMoins = () => {
+    setPokemonIndex(pokemonIndex - 1)
+  }
+
+  if (pokemonIndex <= 0) {
+
+    return ( <div>
+      <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
+      <button onClick={handleClickPlus}>Suivant</button>
+    </div>
+);
+
+    } else if (pokemonIndex < pokemonList.length - 1) {
+
+    return ( <div>
+      <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
+      <button onClick={handleClickMoins}>Précédent</button>
+      <button onClick={handleClickPlus}>Suivant</button>
+    </div>
+);
+  } else if (pokemonIndex < pokemonList.length) {
+
+    return ( <div>
+      <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
+      <button onClick={handleClickMoins}>Précédent</button>
+    </div>
+);
+  }  
+
+  return ( <div>
+              <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
+              <button onClick={handleClickMoins}>Précédent</button>
+              <button onClick={handleClickPlus}>Suivant</button>
+            </div>
+  );
+
+}
+const pokemonList = [
+  {
       name: "bulbasaur",
       imgSrc:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+    },
+    {
+      name: "charmander",
+      imgSrc:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+    },
+    {
+      name: "squirtle",
+      imgSrc:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+    },
+    {
+      name: "pikachu",
+      imgSrc:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
     },
     {
       name: "mew",
     },
   ];
 
-return (
-
-<div>
-  <PokemonCard pokemon={pokemonList[0]}/>
-</div>
-
-);
-}
-
-
 export default App
 
-// {
-//   const [count, setCount] = useState(0)
-
-// 
-//   <>
-//     <div>
-//       <a href="https://vitejs.dev" target="_blank">
-//         <img src={viteLogo} className="logo" alt="Vite logo" />
-//       </a>
-//       <a href="https://react.dev" target="_blank">
-//         <img src={reactLogo} className="logo react" alt="React logo" />
-//       </a>
-//     </div>
-//     <h1>Vite + React</h1>
-//     <div className="card">
-//       <button onClick={() => setCount((count) => count + 1)}>
-//         count is {count}
-//       </button>
-//       <p>
-//         Edit <code>src/App.jsx</code> and save to test HMR
-//       </p>
-//     </div>
-//     <p className="read-the-docs">
-//       Click on the Vite and React logos to learn more
-//     </p>
-//   </>
-// )
-// }
 

@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import PokemonCard from './components/PokemonCard'
+import NavBar from './components/NavBar'
 
 function App() { 
 
@@ -16,35 +17,34 @@ function App() {
     setPokemonIndex(pokemonIndex - 1)
   }
 
-  if (pokemonIndex <= 0) {
+//   if (pokemonIndex <= 0) {
 
-    return ( <div>
-      <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
-      <button onClick={handleClickPlus}>Suivant</button>
-    </div>
-);
+//     return ( <div>
+//       <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
+//       <button onClick={handleClickPlus}>Suivant</button>
+//     </div>
+// );
 
-    } else if (pokemonIndex < pokemonList.length - 1) {
+//     } else if (pokemonIndex < pokemonList.length - 1) {
 
-    return ( <div>
-      <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
-      <button onClick={handleClickMoins}>Précédent</button>
-      <button onClick={handleClickPlus}>Suivant</button>
-    </div>
-);
-  } else if (pokemonIndex < pokemonList.length) {
+//     return ( <div>
+//       <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
+//       <button onClick={handleClickMoins}>Précédent</button>
+//       <button onClick={handleClickPlus}>Suivant</button>
+//     </div>
+// );
+//   } else if (pokemonIndex < pokemonList.length) {
 
-    return ( <div>
-      <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
-      <button onClick={handleClickMoins}>Précédent</button>
-    </div>
-);
-  }  
+//     return ( <div>
+//       <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
+//       <button onClick={handleClickMoins}>Précédent</button>
+//     </div>
+// );
+//   }  
 
   return ( <div>
               <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
-              <button onClick={handleClickMoins}>Précédent</button>
-              <button onClick={handleClickPlus}>Suivant</button>
+              <NavBar pokemonList={pokemonList} pokemonIndex={pokemonIndex} handleClickMoins={handleClickMoins} handleClickPlus={handleClickPlus}     />
             </div>
   );
 

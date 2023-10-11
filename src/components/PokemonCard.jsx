@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 
-function PokemonCard (props) {
+function PokemonCard ({pokemon}) {
 
-  console.log(props);
+  // console.log(props);
 
-  const pokemon = props.pokemon;
+  // const pokemon = props.pokemon;
 
   return pokemon && pokemon.imgSrc ? (
 

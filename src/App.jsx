@@ -4,18 +4,19 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import PokemonCard from './components/PokemonCard'
 import NavBar from './components/NavBar'
+import { useEffect } from "react";
 
 function App() { 
 
+  useEffect(
+    () => {
+      alert("hello pokemon trainer :)");
+    },
+    []
+  );
+
   const [pokemonIndex, setPokemonIndex] = useState(0);
 
-  const handleClickPlus = () => {
-    setPokemonIndex(pokemonIndex + 1)
-  }
-
-  const handleClickMoins = () => {
-    setPokemonIndex(pokemonIndex - 1)
-  }
 
 //   if (pokemonIndex <= 0) {
 
@@ -44,7 +45,7 @@ function App() {
 
   return ( <div>
               <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
-              <NavBar pokemonList={pokemonList} pokemonIndex={pokemonIndex} handleClickMoins={handleClickMoins} handleClickPlus={handleClickPlus} setPokemonIndex={setPokemonIndex} />
+              <NavBar pokemonList={pokemonList} pokemonIndex={pokemonIndex} setPokemonIndex={setPokemonIndex} />
             </div>
   );
 
